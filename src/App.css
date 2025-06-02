@@ -1,0 +1,11 @@
+/* Aca residen las variables de Tailwindcss creadas por @SantiagoSuppes para este proyecto. 
+  Todos los estilos se encuentran en las clases de los elementos de los diferentes componentes.
+*/
+
+@import 'tailwindcss';
+
+@theme {
+  --breakpoint-xs: 360px;
+
+  --text-sxs: 9px
+}
