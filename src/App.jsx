@@ -5,17 +5,17 @@ import ItemListContainer from './components/ItemListContainer';
 function App() {
   return (
     <>
-    <header className='py-6'>
+      <header className='py-6'>
 
-      <NavBar/>
+        <NavBar/>
 
-    </header>
+      </header>
 
-    <section className=' min-h-screen mx-6'>
+      <section className='min-h-screen mx-6'>
 
-      <ItemListContainer texto='Hola, bienvenido a Rolling the Bussiness!'/>
+        <ItemListContainer texto='Hola, bienvenido a Rolling the Bussiness!'/>
 
-    </section>
+      </section>
     
     </>
   );
