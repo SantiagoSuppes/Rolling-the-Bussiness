@@ -1,11 +1,27 @@
 /* Aca residen las variables de Tailwindcss creadas por @SantiagoSuppes para este proyecto. 
-  Todos los estilos se encuentran en las clases de los elementos de los diferentes componentes.
+  Los demas estilos se encuentran en las className de los elementos de los diferentes componentes.
 */
 
 @import 'tailwindcss';
 
 @theme {
-  --breakpoint-xs: 360px;
+  --breakpoint-xs: 400px;
 
   --text-sxs: 9px
+}
+
+/* Aca comienzan estilos de componentes principales - seleccionados por ID -, para no sobrecargar las className en los componentes con tailwind.*/ 
+
+body{
+  font-family: helvetica;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+#itemsSection {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  margin: 4rem;
+  gap: 24px;
 }

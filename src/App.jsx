@@ -1,6 +1,7 @@
 import './App.css';
 import NavBar from './components/NavBar.jsx';
 import ItemListContainer from './components/ItemListContainer.jsx';
+import Bienvenida from './components/Bienvenida.jsx'
 
 function App() {
   return (
@@ -11,9 +12,12 @@ function App() {
 
       </header>
 
-      <section className='min-h-screen mx-6'>
+      <Bienvenida bienvenida='Hola, bienvenido a Rolling the Bussiness!'/>
 
-        <ItemListContainer texto='Hola, bienvenido a Rolling the Bussiness!'/>
+
+      <section id='itemsSection'>
+
+        <ItemListContainer />
 
       </section>
     
@@ -21,4 +25,4 @@ function App() {
   );
 }
 
-export default App
+export default App;
