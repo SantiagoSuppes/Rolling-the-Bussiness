@@ -9,19 +9,3 @@
 
   --text-sxs: 9px
 }
-
-/* Aca comienzan estilos de componentes principales - seleccionados por ID -, para no sobrecargar las className en los componentes con tailwind.*/ 
-
-body{
-  font-family: helvetica;
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-#itemsSection {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  margin: 4rem;
-  gap: 24px;
-}

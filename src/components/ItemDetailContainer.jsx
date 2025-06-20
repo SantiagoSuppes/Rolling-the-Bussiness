@@ -12,7 +12,7 @@ const ItemDetailContainer = ({product}) => {
 
     return (
         
-        <ItemDetail item={item} className="gap-2"/>
+        <ItemDetail item={item} />
         
     );
 }

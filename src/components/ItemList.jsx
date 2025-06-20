@@ -1,10 +1,16 @@
-import ItemDetailContainer from "./ItemDetailContainer";
+import Item from "./Item.jsx";
 
 const ItemList = ({ items }) => {
+
+    const isValidProduct = (product) =>
+        product.title && product.images?.length > 0 && product.images[0];
+
+    const filteredProducts = items.filter(isValidProduct);
+
     return (
-        items.map(item =>(
+        filteredProducts.map(item =>(
             
-            <ItemDetailContainer key={item.id} product={item}/>
+            <Item key={item.id} product={item}/>            
             
         ))
     );

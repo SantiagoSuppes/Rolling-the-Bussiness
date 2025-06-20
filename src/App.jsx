@@ -12,10 +12,10 @@ function App() {
 
       </header>
 
-      <Bienvenida bienvenida='Hola, bienvenido a Rolling the Bussiness!'/>
+      <Bienvenida bienvenida='Hello! Welcome to Rolling the Bussiness.'/>
 
 
-      <section id='itemsSection'>
+      <section className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12 mx-8 mt-16'>
 
         <ItemListContainer />
 
