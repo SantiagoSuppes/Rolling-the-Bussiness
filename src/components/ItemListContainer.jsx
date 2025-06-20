@@ -1,25 +1,29 @@
 import { useState, useEffect } from "react";
-import ItemList from "./ItemList";
+import { useParams } from "react-router";
+import ItemList from "./ItemList.jsx";
 
 const ItemListContainer = () => {
-
     let [items, setItems] = useState([]);
+    const { categoryId }  = useParams();
 
-    const getItems = () => fetch('https://api.escuelajs.co/api/v1/products');
+    const url = 'https://api.escuelajs.co/api/v1/products';
+    const urlCat =`https://api.escuelajs.co/api/v1/categories/${categoryId}/products`;
 
     useEffect(() =>{
 
-        getItems()
+        fetch(categoryId? urlCat : url)
             .then(res => res.json())
             .then(data => {
-                console.log("Datos obtenidos", data);
-                setItems(data)})
-            .catch(err => console.log(err));
+                setItems(data);
+            })
+            .catch(err => console.log("Error", err));
 
-    }, [])
+    }, [categoryId])
     
     return (
-       <ItemList items={items} />
+        <section className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12 mx-8 my-16'>
+            <ItemList items={items} />
+        </section>
     );
 };
 

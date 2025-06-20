@@ -3,7 +3,7 @@ import Item from "./Item.jsx";
 const ItemList = ({ items }) => {
 
     const isValidProduct = (product) =>
-        product.title && product.images?.length > 0 && product.images[0];
+        product.title.length >15 && product.images?.length > 0 && product.images[0];
 
     const filteredProducts = items.filter(isValidProduct);
 

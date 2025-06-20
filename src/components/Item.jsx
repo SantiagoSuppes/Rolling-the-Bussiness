@@ -1,6 +1,8 @@
-import ItemList from "./ItemList";
+import { useNavigate } from "react-router";
 
 const Item = ({ product }) => {
+
+    const navigate = useNavigate();
 
     return (
         <div className="shadow-2xl rounded-2xl">
@@ -19,7 +21,7 @@ const Item = ({ product }) => {
 
                 <p>Price: $<span className="font-semibold">{product.price}</span></p>
 
-                <button className="py-1 px-2 border rounded-2xl cursor-pointer hover:bg-amber-100">Agregar</button>
+                <button className="py-1 px-2 border rounded-2xl cursor-pointer hover:bg-amber-100" onClick={() => navigate(`/products/${product.id}`)}>Ver mas</button>
 
             </div>
             

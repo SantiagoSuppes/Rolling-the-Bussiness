@@ -1,12 +1,19 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router";
 import  ItemDetail  from "./ItemDetail.jsx";
 
 
-const ItemDetailContainer = ({product}) => {
-    const [item, setItem] = useState(product);
+const ItemDetailContainer = () => {
+    const [item, setItem] = useState();
+    
+    const {id, categoryId}  = useParams();
+    const url = `https://api.escuelajs.co/api/v1/products/${id}`;
 
     useEffect(() => {
-        //etItem().then((item) => setItem(item));
+        fetch( url )
+            .then(res => res.json())
+            .then(res => setItem(res))
+            
     }, []);
     
 
