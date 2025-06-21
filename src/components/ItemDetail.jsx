@@ -1,12 +1,15 @@
-function ItemDetail ({item}) {
-    return (
-        <div className="flex gap-2 max-w-3xl my-10 m-auto shadow-2xl rounded-2xl p-4">
-            
-            <div className="flex flex-col gap-2 mr-2">
-                <img src={item?.images[0]} alt="foto" className="size-fill rounded-xl"/>
-                <img src={item?.images[1]} alt="foto" className="size-fill rounded-xl"/>
-                {/* <img src={item?.images[2]} alt="foto" className="size-fill rounded-xl"/> */}
+import { useEffect } from "react";
+import ItemCount from "./ItemCount.jsx";
 
+function ItemDetail ({item}) {
+
+    return (
+        <div className="flex flex-col md:flex-row gap-2 max-w-3xl my-10 m-auto shadow-2xl rounded-2xl p-4">
+            
+            <div id="carrusel" className="flex md:flex-col gap-2 md:mr-2 md:overflow-auto overflow-x-auto">
+                {item?.images?.map(url => (
+                    <img key={url} src={url} alt="foto" className="size-fit"></img>
+                ))}
             </div>
 
 
@@ -20,8 +23,9 @@ function ItemDetail ({item}) {
 
                 </div>
             
-                <div className="flex items-end justify-between p-2">
-                    <button className="py-1 px-2 border rounded-2xl cursor-pointer hover:bg-amber-100">Agregar</button>
+                <div className="flex items-center justify-end gap-3 p-2">
+                    <ItemCount/>
+                    <button className="py-1.5 px-2 rounded-2xl cursor-pointer bg-amber-400/85 text-amber-900 hover:text-white">Add to cart</button>
                 </div>
 
             </div>

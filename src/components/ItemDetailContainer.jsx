@@ -12,9 +12,12 @@ const ItemDetailContainer = () => {
     useEffect(() => {
         fetch( url )
             .then(res => res.json())
-            .then(res => setItem(res))
+            .then(res => {
+                console.log(res);
+                setItem(res)})
+
             
-    }, []);
+    }, [id]);
     
 
     return (
