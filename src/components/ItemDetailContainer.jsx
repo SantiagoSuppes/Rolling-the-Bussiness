@@ -13,7 +13,6 @@ const ItemDetailContainer = () => {
         fetch( url )
             .then(res => res.json())
             .then(res => {
-                console.log(res);
                 setItem(res)})
 
             

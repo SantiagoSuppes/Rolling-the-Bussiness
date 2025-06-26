@@ -23,9 +23,8 @@ function ItemDetail ({item}) {
 
                 </div>
             
-                <div className="flex items-center justify-end gap-3 p-2">
-                    <ItemCount/>
-                    <button className="py-1.5 px-2 rounded-2xl cursor-pointer bg-amber-400/85 text-amber-900 hover:text-white">Add to cart</button>
+                <div className="">
+                    <ItemCount prod={item}/>
                 </div>
 
             </div>

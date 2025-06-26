@@ -14,6 +14,7 @@ const ItemListContainer = () => {
         fetch(categoryId? urlCat : url)
             .then(res => res.json())
             .then(data => {
+                console.log(data);
                 setItems(data);
             })
             .catch(err => console.log("Error", err));
