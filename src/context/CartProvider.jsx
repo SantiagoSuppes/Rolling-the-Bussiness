@@ -8,24 +8,20 @@ const CartProvider = ({children}) => {
         setCart([...cart, product])
     }
 
-    let acum = 0;
-    function getQuantity() {
-        cart.forEach(product => {
-            acum += product.quantity;
-        });
-        return acum;
+    const removeFromCart = (product) => {
+        setCart(cart.filter(item => item.id !== product.id));
     }
 
-    let total = 0;
+    function getQuantity() {
+        return cart.reduce((acc, product) => acc + product.quantity, 0);
+    }
+
     function getTotal() {
-        cart.forEach(product => {
-            total += product.price;
-        });
-        return total;
+        return cart.reduce((total, product) => total + product.price * product.quantity, 0);
     }
 
     return (
-        <CartContext.Provider value={{cart, addToCart, getQuantity, getTotal}}>
+        <CartContext.Provider value={{cart, addToCart, getQuantity, getTotal, removeFromCart}}>
             {children}
         </CartContext.Provider>
     );

@@ -23,8 +23,8 @@ function ItemDetail ({item}) {
 
                 </div>
             
-                <div className="">
-                    <ItemCount prod={item}/>
+                <div>
+                    <ItemCount item={item}/>
                 </div>
 
             </div>

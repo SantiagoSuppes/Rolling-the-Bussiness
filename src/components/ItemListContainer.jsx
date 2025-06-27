@@ -1,25 +1,27 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router";
+import { useLocation } from "react-router-dom";
 import ItemList from "./ItemList.jsx";
 
 const ItemListContainer = () => {
     let [items, setItems] = useState([]);
-    const { categoryId }  = useParams();
+    const location = useLocation();
 
+    const queryParams = new URLSearchParams(location.search);
+    const catSlug = queryParams.get("categorySlug");
+    
     const url = 'https://api.escuelajs.co/api/v1/products';
-    const urlCat =`https://api.escuelajs.co/api/v1/categories/${categoryId}/products`;
+    const urlCat =`https://api.escuelajs.co/api/v1/products/?categorySlug=${catSlug}`;
 
     useEffect(() =>{
 
-        fetch(categoryId? urlCat : url)
+        fetch(catSlug? urlCat : url)
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 setItems(data);
             })
             .catch(err => console.log("Error", err));
 
-    }, [categoryId])
+    }, [catSlug])
     
     return (
         <section className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12 mx-8 my-16'>

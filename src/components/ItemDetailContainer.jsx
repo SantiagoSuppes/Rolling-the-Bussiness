@@ -4,25 +4,22 @@ import  ItemDetail  from "./ItemDetail.jsx";
 
 
 const ItemDetailContainer = () => {
-    const [item, setItem] = useState();
+    const [item, setItem] = useState(null);
     
-    const {id, categoryId}  = useParams();
+    const {id}  = useParams();
     const url = `https://api.escuelajs.co/api/v1/products/${id}`;
 
     useEffect(() => {
         fetch( url )
             .then(res => res.json())
             .then(res => {
-                setItem(res)})
-
-            
+                setItem(res)},
+            )
     }, [id]);
     
-
     return (
         
         <ItemDetail item={item} />
-        
     );
 }
 
