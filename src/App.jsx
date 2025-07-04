@@ -5,15 +5,9 @@ import ItemListContainer from './components/ItemListContainer.jsx';
 import ItemDetailContainer from './components/ItemDetailContainer.jsx';
 import Bienvenida from './components/Bienvenida.jsx';
 import Cart from './components/Cart.jsx';
-import { useEffect } from 'react';
-import { getItems } from './firebase/firebase.js';
 
 
 function App() {
-
-  useEffect(() => {
-    getItems();
-  }, [])
 
   return (
     <BrowserRouter>
