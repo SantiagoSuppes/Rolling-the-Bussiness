@@ -2,13 +2,8 @@ import Item from "./Item.jsx";
 
 const ItemList = ({ items }) => {
 
-    const isValidProduct = (product) =>
-        product.title.length >15 && product.images?.length > 0 && product.images[0];
-
-    const filteredProducts = items.filter(isValidProduct);
-
     return (
-        filteredProducts.map(item =>(
+        items.map(item =>(
             
             <Item key={item.id} product={item}/>            
             
