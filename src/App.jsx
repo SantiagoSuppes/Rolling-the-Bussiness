@@ -16,7 +16,6 @@ function App() {
 
       <Routes>
 
-        {/* <Route path='/' element={<Bienvenida bienvenida={"Hello! Welcome to Rolling the Bussiness"} />} /> */}
         <Route path='/' element={<ItemListContainer/>}/>
         <Route path='/products/' element={<ItemListContainer/>}/>
         <Route path='/products/:id' element={<ItemDetailContainer/>}/>
@@ -24,6 +23,7 @@ function App() {
         <Route path='/checkout' element={<CheckoutContainer/>}/>
 
       </Routes>
+
     </BrowserRouter>
   );
 }
