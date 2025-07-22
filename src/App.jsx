@@ -4,7 +4,6 @@ import NavBar from './components/NavBar.jsx';
 import ItemListContainer from './components/ItemListContainer.jsx';
 import ItemDetailContainer from './components/ItemDetailContainer.jsx';
 import Cart from './components/Cart.jsx';
-import Checkout from './components/CheckoutContainer.jsx';
 import CheckoutContainer from './components/CheckoutContainer.jsx';
 
 
