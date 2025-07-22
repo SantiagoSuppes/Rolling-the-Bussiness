@@ -16,8 +16,9 @@ function ItemDetail ({item}) {
             <div className="flex flex-col justify-between p-2 gap-2">
 
                 <div className="flex flex-col gap-2">
-                    <p className="text-3xl font-semibold mt-6"> {item?.title} </p>
-                    <span className=" border-amber-900 text-amber-800 rounded-xl flex justify-center w-fit text-sm p-1.5">{item?.category.name}</span>
+                    <p className="text-3xl font-semibold mt-6"> {item?.name} </p>
+                    <span className="flex items-center gap-1">{item?.kms} <p className="text-xs">kms</p></span>
+                    <span className=" border-amber-900 text-amber-800 rounded-xl flex justify-center w-fit text-sm p-1.5">{item?.category}</span>
                     <p className="text-justify ml-2 mr-7"> {item?.description} </p>
                     <p className="text-lg ml-2 text-zinc-600">Price: <span className="font-semibold text-2xl text-black">${item?.price}</span></p>
 

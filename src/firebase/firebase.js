@@ -30,7 +30,7 @@ export async function getItems() {
     querySnapshot.forEach((doc) => { 
         listaItems.push({id: doc.id, ...doc.data()})
     });
-
+    
     return listaItems;
 }
 
@@ -40,61 +40,24 @@ export async function getItemsByCategory(category){
     const itemList = [];
 
     querySnapshot.forEach((doc) => {
-        console.log(doc.data());
         itemList.push({...doc.data(), id: doc.id})
-    })
+    });
+
+    return itemList;
 }
 
-export async function addNewItems() {
-    const itemsCollectionRef = collection(db, 'items');
-
-    const newItem = { nombre: "Anteojos de sol",
-        precio: 100,
-        disponibilidad: true
-    };
-
-    try {
-        const docRef = await addDoc(itemsCollectionRef, newItem); // Creacion del documento
-        console.log(`Documento creado con ID: ${docRef.id}`);
-    } catch (error) {
-        console.error("Error", error);
-    }
-}
-
-export async function updateItem(id) {
-    const itemDocRef = doc(db, 'items', id);
-
-    try {
-        await updateDoc(itemDocRef, {precio: 1200});
-        console.log("Elemento actualizado correctamente");
-    } catch (error) {
-        console.error("Error de actualizacion", error);
-    }
-}
-
-export async function updateMultipleItems() {
-    const batch = writeBatch(db);
-    const item1Ref = doc(db, 'items', id1);
-    const item2ref = doc(db, 'items', id2);
-
-    batch.update(item1Ref, {precio: 300});
-    batch.update(item2Ref, {precio: 4500});
-
-    try {
-        await batch.commit();
-        console.log("Lote actualizado");
-    } catch (err) {
-        console.error("Error de actualizacion de lote", err);
-    }
+export const createOrder = async (order) => {
+    const docRef = await addDoc(collection(db, "orders"), order);
+    return docRef.id;
 }
 
 export async function getSingleItem(id) {
     const documentRef = doc(db, 'items', id);
+    const snapshot = await getDoc(documentRef);
 
     try {
-        const snapshot = await getDoc(documentRef);
         if (snapshot.exists()){
-            return snapshot.data();
+            return {...snapshot.data(), id:snapshot.id};
         } else { console.log('El documento no existe'); }
     } catch (err) {
         console.error("Error en obtencion de item", err);

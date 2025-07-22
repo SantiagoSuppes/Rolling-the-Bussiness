@@ -1,20 +1,21 @@
 import { useEffect, useState, useRef, use } from "react";
 import { Link } from "react-router-dom";
+import { getItems } from "../firebase/firebase";
 
 export default function DropdownMenu() {
   const [isOpen, setIsOpen] = useState(false);
   const [categories, setCategories] = useState([]);
-  const menuRef = useRef(null); // ← referencia al contenedor
+  const menuRef = useRef(null); 
 
   const handleToggle = () => setIsOpen(prev => !prev);
 
   // Fetch de categorías
-  useEffect(() => {
-    fetch("https://api.escuelajs.co/api/v1/categories")
-      .then(res => res.json())
-      .then(data => setCategories(data))
-      .catch(error => console.error("Error fetching categories:", error));
-  }, []);
+useEffect(() => {
+    getItems().then(res => {
+      const uniqueCategories = [...new Set(res.map(item => item.category))];
+      setCategories(uniqueCategories);
+    });
+}, []);
 
   // Cierre automático al hacer clic afuera
   useEffect(() => {
@@ -45,11 +46,11 @@ export default function DropdownMenu() {
         >
           {categories.map((cat) => (
             <Link
-              to={`/products/?categorySlug=${cat.slug}`}
-              key={cat.id}
-              className="px-8 py-3 active:bg-amber-800 hover:bg-amber-800 transition-colors"
+              to={`/products/?categoryName=${cat}`}
+              key={cat}
+              className="px-8 py-3 active:bg-amber-800 hover:bg-amber-800 transition-colors capitalize"
             >
-              {cat.name}
+              {cat}
             </Link>
           ))}
         </ul>

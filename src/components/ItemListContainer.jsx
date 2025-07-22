@@ -1,30 +1,26 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import ItemList from "./ItemList.jsx";
+import { getItems, getItemsByCategory } from "../firebase/firebase.js";
 
 const ItemListContainer = () => {
-    let [items, setItems] = useState([]);
+    const [items, setItems] = useState([]);
     const location = useLocation();
 
     const queryParams = new URLSearchParams(location.search);
-    const catSlug = queryParams.get("categorySlug");
-    
-    const url = 'https://api.escuelajs.co/api/v1/products';
-    const urlCat =`https://api.escuelajs.co/api/v1/products/?categorySlug=${catSlug}`;
+    const categoryName = queryParams.get("categoryName");
 
     useEffect(() =>{
+        if (categoryName) {
+            getItemsByCategory(categoryName).then(res => setItems(res))
+        } else {
+            getItems().then(res => setItems(res))
+        }
 
-        fetch(catSlug? urlCat : url)
-            .then(res => res.json())
-            .then(data => {
-                setItems(data);
-            })
-            .catch(err => console.log("Error", err));
-
-    }, [catSlug])
+    }, [categoryName])
     
     return (
-        <section className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12 mx-8 my-16'>
+        <section className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12 mx-8 my-16 items-stretch'>
             <ItemList items={items} />
         </section>
     );

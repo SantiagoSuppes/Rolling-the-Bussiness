@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import { getSingleItem } from "../firebase/firebase.js";
 import  ItemDetail  from "./ItemDetail.jsx";
 
 
@@ -7,14 +8,9 @@ const ItemDetailContainer = () => {
     const [item, setItem] = useState(null);
     
     const {id}  = useParams();
-    const url = `https://api.escuelajs.co/api/v1/products/${id}`;
 
     useEffect(() => {
-        fetch( url )
-            .then(res => res.json())
-            .then(res => {
-                setItem(res)},
-            )
+        getSingleItem(id).then(res => setItem(res))
     }, [id]);
     
     return (
