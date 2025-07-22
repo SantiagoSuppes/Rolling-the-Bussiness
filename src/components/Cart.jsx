@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router";
 
 const Cart = () => {
-    const { cart, getTotal, removeFromCart } = useContext(CartContext);
+    const { cart, getTotal, removeFromCart, emptyCart } = useContext(CartContext);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -45,6 +45,10 @@ const Cart = () => {
             <h1 className=" md:text-xl">Total: <span className="font-bold text-2xl">${getTotal()}</span></h1>
             <button className="p-4 rounded-xl bg-amber-800 text-white font-bold cursor-pointer shadow-lg active:bg-amber-400 text-xs md:text-lg" onClick={() => navigate("/checkout")}>
                 Checkout
+            </button>
+
+            <button className="p-3 rounded-xl bg-amber-800 text-white font-semibold cursor-pointer shadow-lg active:bg-amber-400 text-xs md:text-lg" onClick={emptyCart}>
+                Vaciar carrito
             </button>
         </div>
     )

@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef, use } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { getItems } from "../firebase/firebase";
 
 export default function DropdownMenu() {
@@ -45,16 +45,18 @@ useEffect(() => {
           } flex-col absolute top-full w-[90%] bg-amber-900 rounded text-white text-left z-10 transition-all font-medium`}
         >
           {categories.map((cat) => (
-            <Link
+            <NavLink
               to={`/products/?categoryName=${cat}`}
               key={cat}
               className="px-8 py-3 active:bg-amber-800 hover:bg-amber-800 transition-colors capitalize"
             >
               {cat}
-            </Link>
+            </NavLink>
           ))}
         </ul>
       </ul>
     </div>
   );
 }
+
+// <div> es caja en navbar que contiene --> <ul> "products categories", que contiene --> <ul> lista de categories con cada NavLink.
