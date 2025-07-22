@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import ItemCount from "./ItemCount.jsx";
 
 function ItemDetail ({item}) {

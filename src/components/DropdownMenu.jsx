@@ -9,15 +9,13 @@ export default function DropdownMenu() {
 
   const handleToggle = () => setIsOpen(prev => !prev);
 
-  // Fetch de categorías
-useEffect(() => {
-    getItems().then(res => {
-      const uniqueCategories = [...new Set(res.map(item => item.category))];
+  useEffect(() => {
+      getItems().then(res => {
+        const uniqueCategories = [...new Set(res.map(item => item.category))];
       setCategories(uniqueCategories);
-    });
-}, []);
+      });
+  }, []);
 
-  // Cierre automático al hacer clic afuera
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
@@ -37,12 +35,12 @@ useEffect(() => {
         onClick={handleToggle}
         className={`group relative flex justify-self-start items-center cursor-pointer py-1 font-semibold ${isOpen? 'text-white' : 'text-amber-900'} text-sxs sm:text-xs md:text-sm lg:text-base hover:text-white border-t tracking-wide transition-all`}
       >
-        PRODUCTS CATEGORIES
+        CATEGORIES
 
         <ul
           className={`${
             isOpen ? "flex" : "hidden"
-          } flex-col absolute top-full w-[90%] bg-amber-900 rounded text-white text-left z-10 transition-all font-medium`}
+          } flex-col absolute top-full bg-amber-900 rounded text-white text-left z-10 transition-all font-medium`}
         >
           {categories.map((cat) => (
             <NavLink

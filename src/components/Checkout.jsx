@@ -8,10 +8,10 @@ const Checkout = ({ opId, handler }) => {
         <>
         {opId? (
             <div className="flex flex-col gap-8 justify-center font-bold">
-                <h1 className="flex justify-center text-3xl rounded-2xl bg-amber-300/60 p-6  m-8 text-center  shadow-2xl text-amber-900">Tu compra fue realizada con exito!</h1>
-                <h2 className='flex justify-center text-amber-900 text-lg'>ID de la operación: {opId}</h2>
+                <h1 className="flex justify-center text-3xl rounded-2xl bg-amber-300/60 p-6  m-8 text-center  shadow-2xl text-amber-900">Thank you for your purchase!</h1>
+                <h2 className='flex justify-center text-amber-900 text-lg'>Operation ID: {opId}</h2>
                 <button className="rounded-2xl p-4 self-center text-white bg-amber-900 hover:cursor-pointer active:bg-amber-400 shadow-2xl" onClick={() => navigate(`/`)}>
-                Volver al inicio
+                Back to home
                 </button>            
             </div>
         ):

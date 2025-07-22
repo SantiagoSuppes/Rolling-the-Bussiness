@@ -7,8 +7,8 @@ Santiago Suppes
 
 
 ## Dependencies
-| Paquete                | Versión    | Descripción                                          |
-|------------------------|------------|------------------------------------------------------|
+| Paquete                | Versión    | Descripción                                         |
+|------------------------|------------|-----------------------------------------------------|
 | `firebase`             | ^11.10.0   | Plataforma para backend (auth, base de datos, etc.) |
 | `react`                | ^19.1.0    | Biblioteca principal para construir la interfaz     |
 | `react-dom`            | ^19.1.0    | Soporte para renderizar React en el DOM             |

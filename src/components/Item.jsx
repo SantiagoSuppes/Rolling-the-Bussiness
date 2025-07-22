@@ -7,7 +7,7 @@ const Item = ({ product }) => {
     return (
         <div className="flex flex-col shadow-2xl rounded-2xl">
             
-            <img src={product.images} alt="foto" className="rounded-t-2xl h-full w-auto overflow-hidden"/>
+            <img src={product.images[0]} alt="foto" className="rounded-t-2xl h-full w-auto overflow-hidden"/>
 
             <div className="flex flex-col justify-start p-2 gap-2">
 

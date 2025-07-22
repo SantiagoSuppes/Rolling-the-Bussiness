@@ -1,5 +1,3 @@
-import { useState, useEffect } from "react";
-import { Link } from "react-router";
 import CartWidget from "./CartWidget.jsx";
 import Logo from "./Logo.jsx";
 import DropdownMenu from "./DropdownMenu.jsx";

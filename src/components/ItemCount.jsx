@@ -9,8 +9,8 @@ const ItemCount = ( {item} ) => {
     const handleAdd = () => setCounter(counter + 1);
     const handleSub = () => setCounter(counter<1? counter : counter-1);
 
-    const notifyAdded = () => toast.success("Producto agregado al carrito!");
-    const notifyExists = () => toast.info("Este producto ya está en el carrito");
+    const notifyAdded = () => toast.success("Added to cart!");
+    const notifyExists = () => toast.info("Already in cart.");
 
     function isAdded() {
         return cart.some(product => product.name === item.name);
@@ -39,5 +39,3 @@ const ItemCount = ( {item} ) => {
 }
 
 export default ItemCount;
-
-//Eliminar elementos agregados al carrito duplicados.
