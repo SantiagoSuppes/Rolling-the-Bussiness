@@ -2,19 +2,21 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore, getDocs, collection, addDoc, updateDoc, writeBatch, doc, getDoc, query, where } from "firebase/firestore";
 import { getAnalytics } from "firebase/analytics";
+import dotenv from "dotenv";
+dotenv.config({ path: '.env' });
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyCSecPwdb8Uo-XvRSZb_E8Kpy75budrQQI",
-  authDomain: "rolling-the-bussiness.firebaseapp.com",
-  projectId: "rolling-the-bussiness",
-  storageBucket: "rolling-the-bussiness.firebasestorage.app",
-  messagingSenderId: "819055706706",
-  appId: "1:819055706706:web:a8c9e016bf619bd707d58b",
-  measurementId: "G-6L2LJ3RGM7"
+  apiKey: process.env.apiKey,
+  authDomain: process.env.authDomain,
+  projectId: process.env.projectId,
+  storageBucket: process.env.storageBucket,
+  messagingSenderId: process.env.messagingSenderId,
+  appId: process.env.appId,
+  measurementId: process.env.measurementId
 };
 
 const app = initializeApp(firebaseConfig);
